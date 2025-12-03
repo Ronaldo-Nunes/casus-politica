@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - Casus</title>
+    <title>Legal - Casus</title>
     <meta name="description" content="Política de Privacidade e Termos de Uso do aplicativo Casus.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (via CDN) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Configuração de Cores -->
@@ -32,185 +32,225 @@
     </script>
 
     <style>
-        body {
-            background-color: #f3f4f6;
-            color: #333;
-        }
+        body { background-color: #f8fafc; color: #334155; }
         .legal-content h2 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-            font-weight: 700;
-            font-size: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+            margin-top: 2rem; margin-bottom: 1rem; color: #1e293b;
+            font-weight: 700; font-size: 1.5rem;
+            border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;
         }
         .legal-content h3 {
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #334155;
-            font-weight: 600;
-            font-size: 1.125rem;
+            margin-top: 1.5rem; margin-bottom: 0.75rem; color: #334155;
+            font-weight: 600; font-size: 1.125rem;
         }
-        .legal-content p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            color: #475569;
-        }
-        .legal-content ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #475569;
-        }
-        .legal-content li {
-            margin-bottom: 0.5rem;
-        }
-        .highlight-box {
-            background-color: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 0.25rem;
-        }
+        .legal-content p { margin-bottom: 1rem; line-height: 1.7; }
+        .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
         
-        /* Estilos de Impressão */
-        @media print {
-            body { background-color: white; }
-            .no-print { display: none; }
-            .shadow-xl { box-shadow: none; }
-            .container { max-width: 100%; margin: 0; padding: 0; }
+        /* Tab Animation */
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight-box {
+            background-color: #fffbeb; border-left: 4px solid #f59e0b;
+            padding: 1rem; margin: 1.5rem 0; border-radius: 0.25rem;
         }
     </style>
 </head>
-<body class="antialiased font-sans flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-    <!-- Header / Navbar -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <!-- Logo aplicado aqui -->
-                <img src="./play_store_512.png" alt="Logo Casus" class="h-10 w-10 object-contain rounded-lg shadow-sm">
-                <span class="text-xl font-bold text-gray-900 tracking-tight">Casus</span>
+                <img src="./play_store_512.png" alt="Logo Casus" class="h-10 w-10 object-contain rounded-lg shadow-sm" onerror="this.style.display='none'">
+                <div class="leading-tight">
+                    <h1 class="text-xl font-bold text-gray-900 tracking-tight">Casus</h1>
+                    <span class="text-xs text-gray-500 font-medium uppercase tracking-wider">Centro Legal</span>
+                </div>
             </div>
-            <div class="no-print">
-                <button onclick="window.print()" class="text-sm text-gray-500 hover:text-casus-blue font-medium transition-colors flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                    </svg>
-                    Imprimir
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden sm:flex space-x-2">
+                <button onclick="switchTab('privacy')" id="btn-privacy" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-50 text-casus-blue ring-1 ring-blue-200">
+                    Política de Privacidade
                 </button>
-            </div>
+                <button onclick="switchTab('terms')" id="btn-terms" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+                    Termos de Uso
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation (Bottom of header) -->
+        <div class="sm:hidden flex border-t border-gray-100">
+            <button onclick="switchTab('privacy')" id="mob-btn-privacy" class="flex-1 py-3 text-sm font-medium text-center border-b-2 border-casus-blue text-casus-blue bg-blue-50/50">
+                Privacidade
+            </button>
+            <button onclick="switchTab('terms')" id="mob-btn-terms" class="flex-1 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500">
+                Termos de Uso
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow py-10 px-4 sm:px-6">
-        <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+    <main class="flex-grow py-8 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px]">
             
-            <!-- Document Header -->
-            <div class="bg-slate-50 px-8 py-10 border-b border-gray-100 text-center">
-                <h1 class="text-3xl font-bold text-gray-900 mb-2">Política de Privacidade</h1>
-                <p class="text-gray-500">Aplicativo de apoio a atividade de ISP</p>
-                <div class="mt-4 inline-block px-3 py-1 bg-blue-100 text-casus-blue text-xs font-semibold rounded-full uppercase tracking-wide">
-                    Uso Oficial
+            <!-- PRIVACY POLICY TAB -->
+            <div id="privacy-content" class="tab-content active p-8 legal-content text-justify">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Política de Privacidade</h1>
+                    <p class="text-sm text-gray-500">Última atualização: <span class="current-date"></span></p>
                 </div>
-                <p class="text-xs text-gray-400 mt-4">Última atualização: <span id="current-date"></span></p>
-            </div>
 
-            <!-- Legal Text Body -->
-            <div class="p-8 legal-content text-justify">
-                
-                <h2>1. Visão Geral e Escopo</h2>
-                <p>
-                    O aplicativo <strong>Casus</strong> é uma ferramenta de uso estritamente profissional, desenvolvida para dar suporte a operações de inteligência e segurança pública. O acesso a este software é restrito a agentes autorizados e implica na concordância expressa com o monitoramento, registro de logs e auditoria de todas as ações realizadas no sistema, em conformidade com as normas vigentes de cadeia de custódia e segurança da informação.
-                </p>
+                <p>A sua privacidade e a segurança das informações operacionais são prioritárias para nós. Esta Política descreve como o aplicativo <strong>Casus</strong> coleta, usa e protege dados no contexto de atividades de Inteligência e Segurança Pública.</p>
 
-                <h2>2. Coleta e Tipos de Dados</h2>
-                <p>Para assegurar a integridade do sistema e a identificação unívoca dos operadores, coletamos as seguintes categorias de dados:</p>
+                <h2>1. Contexto e Bases Legais</h2>
+                <p>O Casus é uma ferramenta de uso restrito. O tratamento de dados fundamenta-se principalmente no <strong>Cumprimento de Obrigação Legal</strong> e no <strong>Exercício Regular de Direitos</strong>, visando a segurança pública, defesa nacional e atividades de investigação, conforme exceções previstas na legislação de proteção de dados (como a LGPD no Brasil).</p>
 
-                <h3>2.1. Dados Fornecidos pelo Usuário</h3>
+                <h2>2. Dados Coletados</h2>
+                <p>Para garantir a auditoria e funcionalidade operacional, coletamos:</p>
                 <ul>
-                    <li><strong>Identificação Pessoal e Funcional:</strong> Nome completo, número de matrícula/identificação funcional e posto/graduação (necessários para validação de autoridade).</li>
-                    <li><strong>Dados de Contato:</strong> Endereço de e-mail e número de telefone celular (para autenticação e alertas críticos).</li>
+                    <li><strong>Identificação e Autenticação:</strong> Nome, matrícula, e-mail, unidade de lotação e credenciais de acesso.</li>
+                    <li><strong>Dados de Localização:</strong> Coordenadas geográficas (GPS) usadas para georreferenciamento de endereços e inteligência territorial. A coleta é requerida durante o uso das funcionalidades de mapa.</li>
+                    <li><strong>Mídia e Evidências:</strong> Fotos capturadas ou anexadas para documentação de cadastros e operações.</li>
+                    <li><strong>Dados do Dispositivo e Logs:</strong> ID do dispositivo (Instance ID), modelo, sistema operacional e registros de falhas (Crashlytics).</li>
                 </ul>
 
-                <h3>2.2. Dados Coletados Automaticamente</h3>
+                <h2>3. Uso de Serviços de Terceiros</h2>
+                <p>Para fornecer infraestrutura robusta, utilizamos os seguintes provedores, que atuam como operadores de dados sob estritas normas de segurança:</p>
                 <ul>
-                    <li><strong>Informações do Dispositivo:</strong> Modelo do aparelho, sistema operacional e identificadores únicos de instalação (UUID/Instance ID).</li>
-                    <li><strong>Logs de Acesso e Auditoria:</strong> Registros de data e hora (timestamp) de login, consultas realizadas, relatórios gerados e interações com o banco de dados.</li>
-                    <li><strong>Infraestrutura Firebase:</strong> Utilizamos serviços do Google Firebase que podem coletar dados técnicos para monitoramento de estabilidade (Crashlytics) e performance.</li>
+                    <li><strong>Google Firebase (Auth, Firestore, Storage):</strong> Para autenticação segura, banco de dados em tempo real e armazenamento de arquivos criptografados.</li>
+                    <li><strong>Algolia:</strong> Para indexação e pesquisa rápida e segura de registros.</li>
+                    <li><strong>Google Maps Platform:</strong> Para visualização de mapas e serviços de geocodificação (endereços).</li>
                 </ul>
 
-                <h2>3. Finalidade do Tratamento</h2>
-                <p>Os dados são tratados estritamente sob as bases legais de <strong>Cumprimento de Obrigação Legal</strong> e <strong>Exercício Regular de Direitos</strong>, com as seguintes finalidades:</p>
-                <ol class="list-decimal pl-6 mb-4 text-slate-600 space-y-2">
-                    <li><strong>Controle de Acesso (Autenticação):</strong> Garantir que apenas agentes devidamente credenciados acessem dados sensíveis de segurança pública.</li>
-                    <li><strong>Rastreabilidade e Auditoria (Compliance):</strong> Manter um registro inalterável de quem acessou, inseriu ou modificou informações, atendendo a requisitos de corregedoria e investigações judiciais.</li>
-                    <li><strong>Segurança da Informação:</strong> Detectar acessos anômalos, prevenir vazamento de informações e proteger a infraestrutura contra ataques.</li>
-                </ol>
-
-                <h2>4. Retenção de Dados e Exclusão de Conta</h2>
-                
-                <!-- Callout Box for Google Play Policy Compliance -->
+                <h2>4. Retenção e Exclusão de Dados (Crítico)</h2>
                 <div class="highlight-box">
-                    <h4 class="font-bold text-amber-800 mb-2 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                        Aviso Importante sobre Exclusão
-                    </h4>
-                    <p class="text-sm text-amber-900 mb-0">
-                        Devido à natureza de Segurança Pública e Inteligência desta aplicação, os registros de atividade (logs) não podem ser excluídos pelo usuário, garantindo a integridade da cadeia de custódia.
+                    <h4 class="font-bold text-amber-900 mb-1">Aviso sobre Cadeia de Custódia</h4>
+                    <p class="text-sm text-amber-800 mb-0">
+                        Devido à natureza de inteligência e segurança pública deste aplicativo, <strong>os usuários não podem excluir seus próprios registros de atividade ou auditoria</strong>.
                     </p>
                 </div>
+                <p>Os dados são mantidos pelo período exigido pelas normas de corregedoria e legislação penal para fins de auditoria e preservação da cadeia de custódia. Solicitações de exclusão de dados pessoais por parte dos agentes devem ser encaminhadas administrativamente, mas poderão ser negadas se houver obrigação legal de manutenção dos registros.</p>
 
-                <p><strong>Política de Retenção:</strong> Os registros de atividade, identificação do usuário e histórico de ações serão mantidos permanentemente ou pelo período máximo exigido pela legislação aplicável para fins de auditoria administrativa, judicial e preservação da cadeia de custódia.</p>
-
-                <p><strong>Solicitação de Desativação:</strong> Diferente de aplicações comerciais comuns, o usuário não possui permissão para excluir seus próprios logs ou conta diretamente pelo aplicativo. Caso um agente seja desligado da corporação ou deseje solicitar a desativação de seu acesso, o requerimento deve ser encaminhado para:</p>
-                
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 text-center">
-                    <p class="font-semibold text-gray-800">Administração do Sistema</p>
-                    <a href="mailto:ronaldo.nunes@seds.al.gov.br" class="text-casus-blue hover:underline break-all">runes.developer@gmail.com</a>
-                </div>
-                <p class="text-sm mt-2 text-center text-gray-500">O bloqueio de acesso será imediato após a validação, mas os dados históricos permanecerão arquivados para fins legais.</p>
-
-                <h2>5. Compartilhamento de Dados</h2>
-                <p>Não comercializamos dados em hipótese alguma. O compartilhamento de informações ocorre estritamente nos seguintes cenários:</p>
+                <h2>5. Permissões do Dispositivo</h2>
                 <ul>
-                    <li><strong>Autoridades Competentes:</strong> Mediante requisição judicial ou procedimentos administrativos disciplinares.</li>
-                    <li><strong>Infraestrutura de Nuvem:</strong> Os dados são armazenados de forma criptografada em servidores seguros (ex: Google Cloud/Firebase), que atuam apenas como operadores de infraestrutura.</li>
+                    <li><strong>Localização (Location):</strong> Essencial para preenchimento automático de formulário de endereço e, assim, possibilitar o mapeamento de alvos potenciais.</li>
+                    <li><strong>Câmera:</strong> Necessária para registro fotográfico de indivíduos e locais.</li>
+                    <li><strong>Armazenamento:</strong> Para cache temporário de mapas e documentos.</li>
                 </ul>
 
-                <h2>6. Segurança</h2>
-                <p>Empregamos protocolos de criptografia (SSL/TLS) em trânsito e em repouso, além de controles rígidos de autenticação. No entanto, é responsabilidade do agente manter suas credenciais de acesso (login e senha) estritamente confidenciais e não compartilhar o dispositivo funcional.</p>
+                <h2>6. Contato e Encarregado de Dados</h2>
+                <p>Para questões sobre privacidade ou suporte técnico:</p>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-4">
+                    <p class="mb-1"><strong>Desenvolvimento:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline">casus.app.dev@gmail.com</a></p>
+                    <p class="mb-0"><strong>Administração do Sistema:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline break-all">ronaldo.nunes@seds.al.gov.br</a></p>
+                </div>
+            </div>
 
-                <h2>7. Contato e Suporte</h2>
-                <p>Para dúvidas sobre esta política ou suporte técnico sobre o funcionamento do aplicativo:</p>
-                <div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-                    <p class="text-sm text-gray-500 mb-1">E-mail de Suporte ao Desenvolvedor:</p>
-                    <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue font-medium hover:underline text-lg">casus.app.dev@gmail.com</a>
+            <!-- TERMS OF USE TAB -->
+            <div id="terms-content" class="tab-content p-8 legal-content text-justify">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Termos de Uso</h1>
+                    <p class="text-sm text-gray-500">Última atualização: <span class="current-date"></span></p>
                 </div>
 
+                <p>Bem-vindo ao <strong>Casus</strong>. O acesso e uso deste aplicativo são regidos por estes Termos. Ao realizar o login, você confirma que leu, compreendeu e aceita integralmente as condições abaixo.</p>
+
+                <h2>1. Natureza do Serviço</h2>
+                <p>O Casus é uma ferramenta profissional destinada exclusivamente a agentes de segurança pública e inteligência autorizados. O uso para fins pessoais, recreativos ou não autorizados pela corporação é estritamente proibido.</p>
+
+                <h2>2. Credenciais e Acesso</h2>
+                <p>O acesso é pessoal e intransferível.</p>
+                <ul>
+                    <li>Você é responsável por manter o sigilo de sua senha e tokens de acesso.</li>
+                    <li>É proibido compartilhar contas ou permitir que terceiros utilizem seu dispositivo enquanto logado.</li>
+                    <li>Qualquer atividade realizada sob sua conta será atribuída a você para fins de auditoria administrativa e criminal.</li>
+                </ul>
+
+                <h2>3. Sigilo e Confidencialidade</h2>
+                <p>Todas as informações inseridas, consultadas ou visualizadas no Casus são classificadas e sigilosas.</p>
+                <ul>
+                    <li>É expressamente proibido tirar "prints" (capturas de tela), fotografar a tela ou extrair dados do aplicativo para compartilhamento em redes sociais ou aplicativos de mensagens não oficiais (ex: WhatsApp), salvo em canais oficiais de operação.</li>
+                    <li>O vazamento de informações obtidas através do aplicativo sujeitará o usuário às sanções penais e administrativas previstas na legislação vigente.</li>
+                </ul>
+
+                <h2>4. Monitoramento e Auditoria</h2>
+                <p>O usuário declara estar ciente de que <strong>todas as suas ações no sistema são monitoradas e registradas</strong> (logs), incluindo horário de acesso, pesquisas realizadas, registros criados e visualizados. Esses dados podem ser utilizados por corregedorias e autoridades judiciais.</p>
+
+                <h2>5. Limitação de Responsabilidade</h2>
+                <p>O Casus é uma ferramenta de apoio à decisão. Embora nos esforcemos para manter a precisão dos dados, a administração do sistema não se responsabiliza por erros operacionais decorrentes de dados desatualizados inseridos por terceiros ou indisponibilidade temporária do serviço (ex: falta de conectividade em áreas remotas).</p>
+
+                <h2>6. Encerramento de Acesso</h2>
+                <p>A administração reserva-se o direito de suspender ou revogar o acesso de qualquer usuário imediatamente, sem aviso prévio, em caso de:</p>
+                <ul>
+                    <li>Exoneração ou afastamento das funções públicas.</li>
+                    <li>Detecção de uso indevido ou suspeita de comprometimento de credenciais.</li>
+                    <li>Violação destes Termos de Uso.</li>
+                </ul>
+
+                <h2>7. Contato Administrativo</h2>
+                <p>Solicitações de acesso, bloqueio ou dúvidas sobre estes termos devem ser direcionadas à chefia imediata ou ao administrador do sistema:</p>
+                <p><strong>Admin:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline">casus.app.dev@gmail.com</a></p>
             </div>
+
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 px-8 text-center mt-auto">
-        <div class="flex justify-center mb-4">
-            <!-- Logo aplicado no rodapé -->
-            <img src="./play_store_512.png" alt="Logo Casus" class="h-12 w-12 rounded-lg bg-white p-1 object-contain">
+    <footer class="bg-gray-900 text-white py-8 px-4 mt-auto">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="./play_store_512.png" alt="Logo Casus" class="h-8 w-8 bg-white rounded p-0.5 object-contain">
+                <span class="font-semibold text-lg tracking-tight">Casus</span>
+            </div>
+            <p class="text-gray-400 text-sm text-center md:text-right">
+                © <span id="year"></span> Suporte em inteligência.<br>
+                Todos os direitos reservados.
+            </p>
         </div>
-        <p class="text-gray-400 text-sm">© <span id="year"></span> Casus - Solução em Inteligência.</p>
-        <p class="text-gray-600 text-xs mt-2">Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script para datas -->
+    <!-- JavaScript Logic -->
     <script>
+        // Set dates
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR', dateOptions);
+        const today = new Date().toLocaleDateString('pt-BR', dateOptions);
+        document.querySelectorAll('.current-date').forEach(el => el.textContent = today);
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(tabName + '-content').classList.add('active');
+
+            // Reset Desktop Buttons
+            const btnClassInactive = "text-gray-600 hover:bg-gray-50 bg-transparent ring-0";
+            const btnClassActive = "bg-blue-50 text-casus-blue ring-1 ring-blue-200";
+            
+            document.getElementById('btn-privacy').className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tabName === 'privacy' ? btnClassActive : btnClassInactive}`;
+            document.getElementById('btn-terms').className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tabName === 'terms' ? btnClassActive : btnClassInactive}`;
+
+            // Reset Mobile Buttons
+            const mobClassInactive = "border-transparent text-gray-500 bg-transparent";
+            const mobClassActive = "border-casus-blue text-casus-blue bg-blue-50/50";
+
+            document.getElementById('mob-btn-privacy').className = `flex-1 py-3 text-sm font-medium text-center border-b-2 transition-colors ${tabName === 'privacy' ? mobClassActive : mobClassInactive}`;
+            document.getElementById('mob-btn-terms').className = `flex-1 py-3 text-sm font-medium text-center border-b-2 transition-colors ${tabName === 'terms' ? mobClassActive : mobClassInactive}`;
+            
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
