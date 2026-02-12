@@ -6,15 +6,12 @@
     <title>Legal - Casus</title>
     <meta name="description" content="Política de Privacidade e Termos de Uso do aplicativo Casus.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuração de Cores -->
     <script>
         tailwind.config = {
             theme: {
@@ -46,7 +43,6 @@
         .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
         .legal-content li { margin-bottom: 0.5rem; }
         
-        /* Tab Animation */
         .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
         .tab-content.active { display: block; }
         
@@ -56,14 +52,17 @@
         }
 
         .highlight-box {
-            background-color: #fffbeb; border-left: 4px solid #f59e0b;
+            background-color: #eff6ff; border-left: 4px solid #3b82f6;
+            padding: 1rem; margin: 1.5rem 0; border-radius: 0.25rem;
+        }
+        .warning-box {
+            background-color: #fff7ed; border-left: 4px solid #f97316;
             padding: 1rem; margin: 1.5rem 0; border-radius: 0.25rem;
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Header -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -74,7 +73,6 @@
                 </div>
             </div>
             
-            <!-- Desktop Navigation -->
             <nav class="hidden sm:flex space-x-2">
                 <button onclick="switchTab('privacy')" id="btn-privacy" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-blue-50 text-casus-blue ring-1 ring-blue-200">
                     Política de Privacidade
@@ -85,7 +83,6 @@
             </nav>
         </div>
         
-        <!-- Mobile Navigation (Bottom of header) -->
         <div class="sm:hidden flex border-t border-gray-100">
             <button onclick="switchTab('privacy')" id="mob-btn-privacy" class="flex-1 py-3 text-sm font-medium text-center border-b-2 border-casus-blue text-casus-blue bg-blue-50/50">
                 Privacidade
@@ -96,113 +93,83 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="flex-grow py-8 px-4 sm:px-6">
         <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px]">
             
-            <!-- PRIVACY POLICY TAB -->
             <div id="privacy-content" class="tab-content active p-8 legal-content text-justify">
                 <div class="mb-8">
                     <h1 class="text-3xl font-bold text-gray-900 mb-2">Política de Privacidade</h1>
                     <p class="text-sm text-gray-500">Última atualização: <span class="current-date"></span></p>
                 </div>
 
-                <p>A sua privacidade e a segurança das informações operacionais são prioritárias para nós. Esta Política descreve como o aplicativo <strong>Casus</strong> coleta, usa e protege dados no contexto de atividades de Inteligência e Segurança Pública.</p>
-
-                <h2>1. Contexto e Bases Legais</h2>
-                <p>O Casus é uma ferramenta de uso restrito. O tratamento de dados fundamenta-se principalmente no <strong>Cumprimento de Obrigação Legal</strong> e no <strong>Exercício Regular de Direitos</strong>, visando a segurança pública, defesa nacional e atividades de investigação, conforme exceções previstas na legislação de proteção de dados (como a LGPD no Brasil).</p>
-
-                <h2>2. Dados Coletados</h2>
-                <p>Para garantir a auditoria e funcionalidade operacional, coletamos:</p>
-                <ul>
-                    <li><strong>Identificação e Autenticação:</strong> Nome, matrícula, e-mail, unidade de lotação e credenciais de acesso.</li>
-                    <li><strong>Dados de Localização:</strong> Coordenadas geográficas (GPS) usadas para georreferenciamento de endereços e inteligência territorial. A coleta é requerida durante o uso das funcionalidades de mapa.</li>
-                    <li><strong>Mídia e Evidências:</strong> Fotos capturadas ou anexadas para documentação de cadastros e operações.</li>
-                    <li><strong>Dados do Dispositivo e Logs:</strong> ID do dispositivo (Instance ID), modelo, sistema operacional e registros de falhas (Crashlytics).</li>
-                </ul>
-
-                <h2>3. Uso de Serviços de Terceiros</h2>
-                <p>Para fornecer infraestrutura robusta, utilizamos os seguintes provedores, que atuam como operadores de dados sob estritas normas de segurança:</p>
-                <ul>
-                    <li><strong>Google Firebase (Auth, Firestore, Storage):</strong> Para autenticação segura, banco de dados em tempo real e armazenamento de arquivos criptografados.</li>
-                    <li><strong>Algolia:</strong> Para indexação e pesquisa rápida e segura de registros.</li>
-                    <li><strong>Google Maps Platform:</strong> Para visualização de mapas e serviços de geocodificação (endereços).</li>
-                </ul>
-
-                <h2>4. Retenção e Exclusão de Dados (Crítico)</h2>
-                <div class="highlight-box">
-                    <h4 class="font-bold text-amber-900 mb-1">Aviso sobre Cadeia de Custódia</h4>
-                    <p class="text-sm text-amber-800 mb-0">
-                        Devido à natureza de inteligência e segurança pública deste aplicativo, <strong>os usuários não podem excluir seus próprios registros de atividade ou auditoria</strong>.
+                <div class="warning-box">
+                    <h4 class="font-bold text-orange-900 mb-1">Aviso de Isenção de Responsabilidade</h4>
+                    <p class="text-sm text-orange-800 mb-0">
+                        O Casus é uma ferramenta tecnológica privada de apoio operacional e <strong>NÃO representa uma entidade governamental</strong>. Este aplicativo não é afiliado, endossado ou operado oficialmente pelo Governo do Estado de Alagoas ou pela Secretaria de Segurança Pública (SSP-AL).
                     </p>
                 </div>
-                <p>Os dados são mantidos pelo período exigido pelas normas de corregedoria e legislação penal para fins de auditoria e preservação da cadeia de custódia. Solicitações de exclusão de dados pessoais por parte dos agentes devem ser encaminhadas administrativamente, mas poderão ser negadas se houver obrigação legal de manutenção dos registros.</p>
 
-                <h2>5. Permissões do Dispositivo</h2>
+                <p>Esta Política descreve como o aplicativo <strong>Casus</strong> coleta e trata dados. Nosso foco é garantir a privacidade dos usuários e a integridade das informações colaborativas registradas na plataforma.</p>
+
+                <h2>1. Origem e Natureza dos Dados</h2>
+                <p>O Casus é uma plataforma cujos dados são de natureza <strong>colaborativa</strong>. Todas as informações contidas no sistema são geradas e inseridas voluntariamente pelos próprios usuários autorizados (Conteúdo Gerado pelo Usuário - UGC).</p>
+                <p>Para informações governamentais oficiais, os usuários devem consultar o portal da Secretaria de Segurança Pública de Alagoas em: <a href="https://www.ssp.al.gov.br/" target="_blank" class="text-casus-blue underline">https://www.ssp.al.gov.br/</a>.</p>
+
+                <h2>2. Coleta de Dados e Finalidade</h2>
                 <ul>
-                    <li><strong>Localização (Location):</strong> Essencial para preenchimento automático de formulário de endereço e, assim, possibilitar o mapeamento de alvos potenciais.</li>
-                    <li><strong>Câmera:</strong> Necessária para registro fotográfico de indivíduos e locais.</li>
-                    <li><strong>Armazenamento:</strong> Para cache temporário de mapas e documentos.</li>
+                    <li><strong>Identificação Profissional:</strong> Nome, e-mail e credenciais para validação de acesso restrito a profissionais do setor.</li>
+                    <li><strong>Dados de Localização:</strong> O aplicativo solicita acesso à localização do dispositivo <strong>exclusivamente para fins de experiência do usuário (UX)</strong>, permitindo o preenchimento automático de campos de endereço em formulários de registro. Não realizamos rastreamento contínuo em segundo plano.</li>
+                    <li><strong>Informações Geradas pelo Usuário:</strong> Registros de ocorrências, descrições e mídias inseridas ativamente pelo usuário para fins de apoio operacional.</li>
+                    <li><strong>Identificadores de Dispositivo:</strong> Coletados para fins de segurança, autenticação e prevenção de fraudes.</li>
                 </ul>
 
-                <h2>6. Contato e Encarregado de Dados</h2>
-                <p>Para questões sobre privacidade ou suporte técnico:</p>
+                <h2>3. Compartilhamento e Segurança</h2>
+                <p>Os dados coletados são processados através de infraestrutura segura (Google Firebase) e não são compartilhados com terceiros para fins publicitários. O acesso às informações é restrito a usuários devidamente credenciados na plataforma.</p>
+
+                <h2>4. Exclusão de Dados e Conta</h2>
+                <p>Em conformidade com as políticas da Google Play Store, garantimos ao usuário o direito de gerir seus dados:</p>
+                <ul>
+                    <li><strong>Exclusão de Conta:</strong> O usuário pode solicitar a exclusão de sua conta e dados de perfil (nome e e-mail) a qualquer momento através do e-mail de suporte abaixo.</li>
+                    <li><strong>Dados Operacionais:</strong> Informações inseridas em registros de colaboração podem ser mantidas para fins de auditoria e histórico de contribuições, conforme a necessidade operacional da comunidade de usuários.</li>
+                </ul>
+
+                <h2>5. Contato</h2>
                 <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-4">
-                    <p class="mb-1"><strong>Desenvolvimento:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline">casus.app.dev@gmail.com</a></p>
-                    <p class="mb-0"><strong>Administração do Sistema:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline break-all">casus.app.dev@gmail.com</a></p>
+                    <p class="mb-1"><strong>Suporte e Privacidade:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline">casus.app.dev@gmail.com</a></p>
                 </div>
             </div>
 
-            <!-- TERMS OF USE TAB -->
             <div id="terms-content" class="tab-content p-8 legal-content text-justify">
                 <div class="mb-8">
                     <h1 class="text-3xl font-bold text-gray-900 mb-2">Termos de Uso</h1>
                     <p class="text-sm text-gray-500">Última atualização: <span class="current-date"></span></p>
                 </div>
 
-                <p>Bem-vindo ao <strong>Casus</strong>. O acesso e uso deste aplicativo são regidos por estes Termos. Ao realizar o login, você confirma que leu, compreendeu e aceita integralmente as condições abaixo.</p>
+                <p>Ao utilizar o <strong>Casus</strong>, você concorda com os termos abaixo, que regem o uso desta ferramenta de colaboração privada.</p>
 
-                <h2>1. Natureza do Serviço</h2>
-                <p>O Casus é uma ferramenta profissional destinada exclusivamente a agentes de segurança pública e inteligência autorizados. O uso para fins pessoais, recreativos ou não autorizados pela corporação é estritamente proibido.</p>
+                <h2>1. Elegibilidade e Uso Restrito</h2>
+                <p>O Casus é destinado exclusivamente a profissionais envolvidos em atividades de segurança pública e apoio operacional. É proibido o uso por civis ou para finalidades que não correspondam ao escopo da plataforma.</p>
 
-                <h2>2. Credenciais e Acesso</h2>
-                <p>O acesso é pessoal e intransferível.</p>
+                <h2>2. Responsabilidade pelo Conteúdo</h2>
+                <p>Como uma ferramenta baseada em <strong>contribuições de usuários</strong>, você é o único responsável pela veracidade e legalidade dos dados que insere no aplicativo. O Casus não valida a veracidade oficial das informações inseridas por terceiros.</p>
+
+                <h2>3. Conduta do Usuário</h2>
                 <ul>
-                    <li>Você é responsável por manter o sigilo de sua senha e tokens de acesso.</li>
-                    <li>É proibido compartilhar contas ou permitir que terceiros utilizem seu dispositivo enquanto logado.</li>
-                    <li>Qualquer atividade realizada sob sua conta será atribuída a você para fins de auditoria administrativa e criminal.</li>
+                    <li>É proibido o compartilhamento de credenciais de acesso.</li>
+                    <li>O usuário compromete-se a não utilizar o app para atividades ilícitas ou extração de dados não autorizada.</li>
+                    <li>A utilização do app implica na ciência de que o sistema é uma ferramenta de apoio, e não uma base de dados governamental oficial única.</li>
                 </ul>
 
-                <h2>3. Sigilo e Confidencialidade</h2>
-                <p>Todas as informações inseridas, consultadas ou visualizadas no Casus são classificadas e sigilosas.</p>
-                <ul>
-                    <li>É expressamente proibido tirar "prints" (capturas de tela), fotografar a tela ou extrair dados do aplicativo para compartilhamento em redes sociais ou aplicativos de mensagens não oficiais (ex: WhatsApp), salvo em canais oficiais de operação.</li>
-                    <li>O vazamento de informações obtidas através do aplicativo sujeitará o usuário às sanções penais e administrativas previstas na legislação vigente.</li>
-                </ul>
+                <h2>4. Limitação de Responsabilidade</h2>
+                <p>O Casus não se responsabiliza por decisões tomadas com base em informações colaborativas inseridas por outros usuários. A plataforma é provida "como está", visando apenas a facilitação tecnológica do registro de informações.</p>
 
-                <h2>4. Monitoramento e Auditoria</h2>
-                <p>O usuário declara estar ciente de que <strong>todas as suas ações no sistema são monitoradas e registradas</strong> (logs), incluindo horário de acesso, pesquisas realizadas, registros criados e visualizados. Esses dados podem ser utilizados por corregedorias e autoridades judiciais.</p>
-
-                <h2>5. Limitação de Responsabilidade</h2>
-                <p>O Casus é uma ferramenta de apoio à decisão. Embora nos esforcemos para manter a precisão dos dados, a administração do sistema não se responsabiliza por erros operacionais decorrentes de dados desatualizados inseridos por terceiros ou indisponibilidade temporária do serviço (ex: falta de conectividade em áreas remotas).</p>
-
-                <h2>6. Encerramento de Acesso</h2>
-                <p>A administração reserva-se o direito de suspender ou revogar o acesso de qualquer usuário imediatamente, sem aviso prévio, em caso de:</p>
-                <ul>
-                    <li>Exoneração ou afastamento das funções públicas.</li>
-                    <li>Detecção de uso indevido ou suspeita de comprometimento de credenciais.</li>
-                    <li>Violação destes Termos de Uso.</li>
-                </ul>
-
-                <h2>7. Contato Administrativo</h2>
-                <p>Solicitações de acesso, bloqueio ou dúvidas sobre estes termos devem ser direcionadas à chefia imediata ou ao administrador do sistema:</p>
-                <p><strong>Admin:</strong> <a href="mailto:casus.app.dev@gmail.com" class="text-casus-blue hover:underline">casus.app.dev@gmail.com</a></p>
+                <h2>5. Modificações</h2>
+                <p>Reservamos o direito de atualizar estes termos e a política de privacidade para refletir mudanças legais ou funcionais. O uso continuado do app após alterações constitui aceitação dos novos termos.</p>
             </div>
 
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8 px-4 mt-auto">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
@@ -210,13 +177,12 @@
                 <span class="font-semibold text-lg tracking-tight">Casus</span>
             </div>
             <p class="text-gray-400 text-sm text-center md:text-right">
-                © <span id="year"></span> Suporte em inteligência.<br>
-                Todos os direitos reservados.
+                © <span id="year"></span> Casus App - Apoio Operacional.<br>
+                Plataforma Colaborativa Privada.
             </p>
         </div>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
         // Set dates
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -226,29 +192,24 @@
 
         // Tab Switching Logic
         function switchTab(tabName) {
-            // Hide all contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
             
-            // Show selected content
             document.getElementById(tabName + '-content').classList.add('active');
 
-            // Reset Desktop Buttons
             const btnClassInactive = "text-gray-600 hover:bg-gray-50 bg-transparent ring-0";
             const btnClassActive = "bg-blue-50 text-casus-blue ring-1 ring-blue-200";
             
             document.getElementById('btn-privacy').className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tabName === 'privacy' ? btnClassActive : btnClassInactive}`;
             document.getElementById('btn-terms').className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tabName === 'terms' ? btnClassActive : btnClassInactive}`;
 
-            // Reset Mobile Buttons
             const mobClassInactive = "border-transparent text-gray-500 bg-transparent";
             const mobClassActive = "border-casus-blue text-casus-blue bg-blue-50/50";
 
             document.getElementById('mob-btn-privacy').className = `flex-1 py-3 text-sm font-medium text-center border-b-2 transition-colors ${tabName === 'privacy' ? mobClassActive : mobClassInactive}`;
             document.getElementById('mob-btn-terms').className = `flex-1 py-3 text-sm font-medium text-center border-b-2 transition-colors ${tabName === 'terms' ? mobClassActive : mobClassInactive}`;
             
-            // Scroll to top of content
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
